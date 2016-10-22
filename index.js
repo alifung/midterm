@@ -1,3 +1,5 @@
+//making the node server werk
+
 var express = require('express');
 var hbs = require('express-handlebars');
 var bodyParser = require('body-parser');
@@ -13,7 +15,7 @@ var portNum = 8888;
 app.set('port', portNum);
 
 // tell express to use handlebars
-app.engine('handlebars', hbs({defaultLayout: 'main'}) );
+app.engine('handlebars', hbs({defaultLayout: 'home'}) );
 app.set('view engine', 'handlebars');
 
 // parse application/x-www-form-urlencoded

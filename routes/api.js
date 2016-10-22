@@ -1,7 +1,9 @@
+//routing everything!
+
 var express = require('express');
 var router = express.Router(); //what allows us to run the router and connect to the server
 
-var Cheese = require('../models/cheese'); //don't need the cheese.js but this refers to cheese.js 
+var Cheese = require('../models/cheese'); //don't need the .js but this refers to cheese.js 
 //to get the cheese model with the schema inside of it
 
 
@@ -12,22 +14,6 @@ router.get('/', function(req, res) {
 	})
 });
 
-
-//this is so when people submit tags, it separates them by commas
-//NOT NEEDED BECAUSE I AM TAGGING VIA DROPDOWN
-//router.post('/cheese', function(req,res) {
-//	var tags = undefined;
-//	if (req.body.tags) {
-//		tags = req.body.tags.split(',');
-//	}
-//})
-
-var cheese = new Cheese({ //why is there all of this body stuff? what is it referring to?
-	//name: req.body.name
-	slug: slugify(req.body.name) // questions here!
-	location: req.body.location,
-	tags: tags
-});
 
 cheese.save(function(err, data) {
 	if (err) {
@@ -46,7 +32,6 @@ cheese.save(function(err, data) {
 		message: 'cheese succesfully added!',
 		cheese: data //what does this do?
 	});
-});
 });
 
 router.get('/cheese', function(req, res, next) { // this directs to the individual cheese page?
