@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>{{title}}</title>
-	<meta name="viewpoint" content="width=device-width, initial=scale=1">
-<link rel="stylesheet" href="/css/style/css">
-</head>
-<body>
+<h1>testin things out</h1>
 
-	<div class="container">
-	{{body}}
+
+{{#each cheese}}
+	<div class="thecheese">
+		{{#if imageFilename}}
+			<img src="/uploads/{{imageFilename}}">
+		{{/if}}
+		<h3>{{tags}}</h3>
 	</div>
-</body>
-</html>
+{{/each}}
+
+{{!-- //use getPlace to get the results of the stored stuff
+ --}}
+{{!-- // <script>
+// var place = autocomplete.getPlace
+// </script> --}}

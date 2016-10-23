@@ -1,0 +1,48 @@
+<form action="/cheese/add" method="post" enctype="multipart/form-data">
+
+<!-- google maps search tag thingy here - found from Gary Olsson on stack overflow -->
+<label for="location" ></label>
+<input type="lat/long" location="location" id="location">
+
+
+<div style="margin-top:100px; background: #00a6d6; width: 100%; height:100px;">
+  <input id="address" style="position:absolute; left:0px;" type="text"
+        placeholder="Enter a location">
+</div>
+<!-- OR -->
+<input id="pac-input" class="controls" type="text" palceholder="Enter Location Here">
+
+// <script>
+// //this was made possible to me by google devleloper's youtube at https://www.youtube.com/watch?v=lSdM3yZkj1w
+// //set the bounds of the search engine to NYC
+
+// //getPlace to get the resuts
+// 	var defaultBounds = new google.maps.LatLngBounds(
+// 		new google.maps.LatLng(40.915256, -74.255735)
+// 		new google.maps.LatLng(40.496044, -73.700272));
+// 	var options = {
+// 		bounds:defaultBounds
+// 	var input = document.getElementById('pac-input');
+// 	//from the PLACES search not address
+// 	var searchBox = new google.maps.places.SearchBox(input);
+// 	// what connects the search to the map map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+// 	//create autocomplete object
+// 	var autocomplete = new google.maps.places.Autocompelte(input, options);	
+// 	}
+
+
+// </script>
+
+<label for="tags">Tags: </label>
+<select tag="tag" id="tag">
+	<option value="Mac and Cheese"></option>
+	<option value="Italian"></option>
+	<option value="Sandwiches"></option>
+</select>
+
+<label for="image">Image: </label>
+<input id="image" type="file" name="image" accepts="image/*">
+
+<input type="submit">
+</form>
