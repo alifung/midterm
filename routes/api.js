@@ -11,7 +11,7 @@ var Cheese = require('../models/cheese'); //don't need the .js but this refers t
 router.get('/', function(req, res) {
 	res.json({
 		status: 'ok'
-	})
+	});
 });
 
 
@@ -19,8 +19,8 @@ cheese.save(function(err, data) {
 	if (err) {
 		console.log(err); //let us know what's up and that we have an error!
 		res.status(500);
-		resturn res.json({ //get that json info!!!
-			status: 'error'
+		return res.json({ //get that json info!!!
+			status: 'error',
 			message: 'your cheese dish could not be added!', //error message
 			error: err
 		});
@@ -38,7 +38,7 @@ router.get('/cheese', function(req, res, next) { // this directs to the individu
 	Cheese.find({}, function(err, data) {
 		if (err) {
 			res.status(500);
-			resturn res.json({
+			return res.json({
 				status: 'error',
 				message: 'the cheeses could not be found!'
 

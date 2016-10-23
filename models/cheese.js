@@ -7,7 +7,7 @@ var cheeseSchema = new Schema({ //don't need a name, but then i do need slugs?
 	location: {
 		coords: [Number],
 		name: String
-	}
+	},
 
 	tags: [String], // this is going to be equivalent to dishes. 
 	imageURL: String
