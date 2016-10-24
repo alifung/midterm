@@ -2,24 +2,22 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var URLSlugs = require('mongoose-url-slugs'); // do I need slugs??
+//var URLSlugs = require('mongoose-url-slugs'); // do I need slugs??
 
 
 
 
 var cheeseSchema = new Schema({ //don't need a name, but then i do need slugs?
 
-	location: {
-		coords: [Number],
-		name: String
-	},
+	location: Number,
 	tags: [String], // this is going to be equivalent to dishes. 
-	imageURL: String
+	//imageURL: String
+	imageFilename: String
 }); 
 
 
 
-cheeseSchema.plugin(URLSlugs('name', {field: 'slug'})); // more for the slugs!
+//cheeseSchema.plugin(URLSlugs('name', {field: 'slug'})); // more for the slugs!
 
 var Cheese = mongoose.model('Cheese', cheeseSchema);
 

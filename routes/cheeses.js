@@ -16,59 +16,61 @@ router.get('/home', function(req, res) { //render handlebars template
 });
 
 router.get('/add', function(req, res) {
-	res.render('newcheese');
+    res.render('newcheese');
 });
 
 // what is this body thing??
 router.post('/add', upload.single('image'), function(req, res) {
-    //res.render('newcheese');
-    console.log(req.files);
-    var filename = req.file.map(function(item) {
-        return item.filename;
-    });
-
+    console.log(req.file.filename);
+            //     var filename = req.files.map(function(item) {
+            //     return item.filename;
+            // });
+    //place_id  res
+    //res.render('newcheese'); //add location stuff here!!
     var cheese = new Cheese({
-        location: req.body.name, // how do I incorporate location and coordinates here?
+        location: req.body.place_id, // how do I incorporate location and coordinates here?
         tag: req.body.tag,
         imageFilename: req.file.filename
-
     });
-
+    // });
     cheese.save(function(err, data) {
         if (err) {
             console.log(err);
 
-            return res.redirect(303, '/cheese'); // if error, return to the main display
+            return res.redirect(404, '/cheeses/add'); // if error, return to the main display
         }
 
-        return res.redirect(303, '/cheese'); //if success, return to the main display
+        return res.redirect('./individual-cheese'); //if success, return to the main display
     });
 });
 
-// router.get('/'), function(req, res) { //WHAT DOES THIS DO? CONFUSED
+// router.get('/'), function(req, res) { //GETS THINGS THAT CORRESPOND TO THINGS
 // var query = {};
 // if (req.query.animal) {
-// 		query = {animal: req.query.animal};
-// 	}
-// 	Pet.find(query, function(err, data {
-// 		var pageData = {
-// 			pets: data
-// 		};
-// 		res.render('pets', pagaData);
-// 	//}))
+//      query = {animal: req.query.animal};
+//  }
+//  Pet.find(query, function(err, data {
+//      var pageData = {
+//          pets: data
+//      };
+//      res.render('pets', pagaData);
+//  //}))
 // //}
 
 router.get('/:id', function(req, res) {
-    console.log('hi');
-    Cheese.findOne({ '_id': req.params.cheeseSlug }, function(err, data) {
-        if (err) {
-            console.log(err);
-        }
-        return res.render('individual-cheese', data);
-        // var pageData = {
-        // 	cheese: [data]
-        // };
-        // res.render('cheeses', pageData);
+    // console.log('hi');
+    Cheese.findOne({ '_id': req.params.id}, function(err, data) {
+        var pageData = {
+            showMe: [data]
+        };
+        res.render('individual-cheese', pageData);
+            //  };
+            // Cheese.findOne({'_id': req.params.id }, function(err, data) {
+            //     if (err) {
+            //         console.log(err);
+            //     }
+            //    return res.render('individual-cheese', data);
+
     });
 });
 

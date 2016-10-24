@@ -28,11 +28,11 @@ app.use(bodyParser.json());
 var api = require('./routes/api');
 app.use('/api', api);
 
-var Cheese = require('./routes/cheeses')
-app.use('/cheeses', Cheese) //connecting to the cheeses.js -- so you know where to get the routes
+var Chess = require('./routes/cheeses')
+app.use('/cheeses', Chess); //connecting to the cheeses.js -- so you know where to get the routes
 
 
-app.use( express.static(path.join(__dirname + '/public')) );
+app.use(express.static(path.join(__dirname + '/public')) );
 
 // start server
 app.listen(portNum, function() {

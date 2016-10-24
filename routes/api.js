@@ -18,7 +18,8 @@ router.get('/', function(req, res) {
 
 router.post('/cheese', function(req, res, next) {
             var cheesey = new Cheese({
-                tags: undefined
+                location: req.body.place_id,
+                tags: tags
             });
 
             cheesey.save(function(err, data) {
@@ -39,7 +40,7 @@ router.post('/cheese', function(req, res, next) {
                 });
             });
         });
-            router.get('/cheese', function(req, res, next) { // this directs to the individual cheese page?
+            router.get('/cheeses', function(req, res, next) { // this directs to the individual cheese page?
                 Cheese.find({}, function(err, data) {
                     if (err) {
                         res.status(500);
@@ -52,6 +53,14 @@ router.post('/cheese', function(req, res, next) {
                 });
             });
 
+// function slugify(text){
+//     return text.toString().toLowerCase()
+//         .replace(/\s+/g, '-')
+//         .replace(/[^]\w\-]+/g, '')
+//         .replace(/\-\-+/g, '-')
+//         .replace(/^-+/, '')
+//         .replace(/-+$/, '');
+// }
             // via http://gist.github.com/mathewbyrne/1280286 // if i want slugify stuff, do that here!
 
 module.exports = router; //set that router going!!
