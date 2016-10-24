@@ -1,3 +1,8 @@
+body, h1, h2, h3{
+  font-family: sans-serif;
+}
+
+
 
 
 /* all the map stuff from google maps https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete*/

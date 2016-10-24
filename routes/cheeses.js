@@ -5,7 +5,7 @@ var router = express.Router();
 
 var path = require('path');
 
-var multer = require('multer'); //this is the form handling middleware!
+var multer = require('multer'); //this is the image upoloading middleware!
 var uploadPath = path.join(__dirname, '../public/uploads'); // this is the folder where the images are stored I think?
 var upload = multer({ dest: uploadPath }); //
 
@@ -28,7 +28,7 @@ router.post('/add', upload.single('image'), function(req, res) {
     //place_id  res
     //res.render('newcheese'); //add location stuff here!!
     var cheese = new Cheese({
-        location: req.body.place_id, // how do I incorporate location and coordinates here?
+        location: req.body.place_id, //provided by google
         tag: req.body.tag,
         imageFilename: req.file.filename
     });
@@ -44,21 +44,10 @@ router.post('/add', upload.single('image'), function(req, res) {
     });
 });
 
-// router.get('/'), function(req, res) { //GETS THINGS THAT CORRESPOND TO THINGS
-// var query = {};
-// if (req.query.animal) {
-//      query = {animal: req.query.animal};
-//  }
-//  Pet.find(query, function(err, data {
-//      var pageData = {
-//          pets: data
-//      };
-//      res.render('pets', pagaData);
-//  //}))
-// //}
 
+//for every individual cheese ID, find the one that matches and send me to that individual cheese
 router.get('/:id', function(req, res) {
-    // console.log('hi');
+    // console.log('YO');
     Cheese.findOne({ '_id': req.params.id}, function(err, data) {
         var pageData = {
             showMe: [data]
