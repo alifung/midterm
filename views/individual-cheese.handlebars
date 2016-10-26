@@ -1,25 +1,21 @@
 <h1> is this your cheese?</h1>
 
 
-{{#each cheese}}
+{{#each cheeses}}
 <div id= individualCheeseInfo>
 	<div class="cheeseimage">
-		{{#if imageFilename}}
-			<img src="uploads/{{imageFilename}}">
-		}}
+		{{#if myFilename}}
+			<img src="/uploads/{{this}}">
+		{{/if}}
 	<div class="map">
 	</div>
-	<h3>{{tags}}</h3>
+	<h3>{{tag}}</h3>
+
 </div>
+{{/each}}
 
 <!--need map with specific coordinates here-->
 <script href= "http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places">
 //&v=3
 
 </script>
-
-
-
-
-
-<!--used code from https://developers.google.com/maps/documentation/javascript/examples/place-search as reference-->

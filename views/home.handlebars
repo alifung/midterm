@@ -3,8 +3,8 @@
 
 {{#each cheese}}
 	<div class="thecheese">
-		{{#if imageFilename}}
-			<img src="/uploads/{{imageFilename}}">
+		{{#if myFilename}}
+			<img src="/uploads/{{myFilename}}">
 		{{/if}}
 		<h3>{{tags}}</h3>
 	</div>
@@ -13,5 +13,3 @@
 {{!-- //use getPlace to get the results of the stored stuff
  --}}
 {{!-- // <script>
-// var place = autocomplete.getPlace
-// </script> --}}

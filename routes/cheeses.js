@@ -23,16 +23,18 @@ router.get('/add', function(req, res) {
 router.post('/add', upload.single('image'), function(req, res) {
 
     var myFileName = undefined;
-// if there is a file...
+    // if there is a file...
     if (req.file) {
-      myFileName = req.file.filename;
+        myFileName = req.file.filename;
     }
 
     var cheese = new Cheese({
         location: req.body.place_id, //provided by google
         tag: req.body.tag,
-        filename: myFileName //save the filename
+        filename: myFileName //save the filenam
     });
+
+    console.log(myFileName);
 
     // });
     cheese.save(function(err, data) {
@@ -42,25 +44,50 @@ router.post('/add', upload.single('image'), function(req, res) {
             return res.redirect(404, '/cheeses/add'); // if error, return to the main display
         }
 
-        return res.redirect('./individual-cheese + data._id'); //if success, return to the YOUR cheese
+        return res.redirect('./individual-cheese' + data._id); //if success, return to the YOUR cheese
     });
 });
 
 
 //for every individual cheese ID, find the one that matches and send me to that individual cheese
+// router.get('/:id', function(req, res) {
+//             // console.log('YO');
+//             Cheese.findOne({ '_id': req.params.id }, function(err, data) {
+//                 var pageData = {
+//                     showMe: [data]
+//                 };
+//                 res.render('individual-cheese', pageData);
+//                 });
+//         });
+
 router.get('/:id', function(req, res) {
-    // console.log('YO');
-    Cheese.findOne({ '_id': req.params.id}, function(err, data) {
+    Cheese.findOne({ '_id': req.params.id }, function(err, data) {
+        if (err) {
+            console.log(err);
+        }
+        return res.render('individual-cheese', data);
+    });
+});
+//  };
+// Cheese.findOne({'_id': req.params.id }, function(err, data) {
+//     if (err) {
+//         console.log(err);
+//     }
+//    return res.render('individual-cheese', data);
+//to display data on page
+router.get('individual-cheese', function(req, res) {
+    //console.log(res.render(_id));
+
+    var query = {}
+    if (req.query.id) {
+        query = { id: req.query.id };
+    }
+    Cheese.find(query), (function(err, data) {
         var pageData = {
-            showMe: [data]
+            cheeses: data
         };
-        res.render('individual-cheese', pageData);
-            //  };
-            // Cheese.findOne({'_id': req.params.id }, function(err, data) {
-            //     if (err) {
-            //         console.log(err);
-            //     }
-            //    return res.render('individual-cheese', data);
+        res.render('individual-cheese' + data._id, pageData);
+
 
     });
 });
