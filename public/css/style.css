@@ -12,6 +12,10 @@ body, h1, h2, h3{
   font-family: Gotham;
 }
 
+#maintitle {
+  padding: 10px;
+}
+
 nav a{
   display: inline-block;
   padding-top: 10vh;
