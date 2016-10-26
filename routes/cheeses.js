@@ -31,6 +31,7 @@ router.post('/add', upload.single('image'), function(req, res) {
     var cheese = new Cheese({
         location: req.body.place_id, //provided by google
         tag: req.body.tag,
+        filename: myFileName //save the filename
     });
 
     // });
