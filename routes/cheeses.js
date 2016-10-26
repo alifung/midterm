@@ -21,22 +21,18 @@ router.get('/add', function(req, res) {
 
 // what is this body thing??
 router.post('/add', upload.single('image'), function(req, res) {
-    console.log(req.file.filename);
-            //     var filename = req.files.map(function(item) {
-            //     return item.filename;
-            // });
-    //place_id  res
-    //res.render('newcheese'); //add location stuff here!!
-    var cheese = new Cheese({
-        location: req.body.place_id, //provided by google
-        tag: req.body.tag,
-    });
-    var myFileName = undefined;
 
+    var myFileName = undefined;
 // if there is a file...
     if (req.file) {
       myFileName = req.file.filename;
     }
+
+    var cheese = new Cheese({
+        location: req.body.place_id, //provided by google
+        tag: req.body.tag,
+    });
+
     // });
     cheese.save(function(err, data) {
         if (err) {
