@@ -18,7 +18,7 @@ router.get('/', function(req, res) {
 
 router.post('/cheese', function(req, res, next) {
             var cheesey = new Cheese({
-                location: req.body.place_id,
+                location: req.place.place_id,
                 tags: tags
             });
 

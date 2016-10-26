@@ -35,7 +35,7 @@ form{
 /* all the map stuff from google maps https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete*/
 
 #map {
-  height: 100%;
+  height: 50%;
 }
 /* Optional: Makes the sample page fill the window. */
 html, body {
