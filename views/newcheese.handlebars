@@ -1,8 +1,10 @@
 
     <div id="map"></div>
     <form action="/cheeses/add" method="post" enctype="multipart/form-data" id ="form">
-<input id="pac-input" class="controls" type="text"
+<input id="pac-input" name="locationName"class="controls" type="text"
         placeholder="Enter a location">
+<input id="locationID" name="locationID" type="hidden">
+
   <label for="tag">Categorize Dish: </label>
   <select name="tag" id="tag">
     <option value="Mac and Cheese">Mac and Cheese</option>
@@ -71,6 +73,10 @@
               'Place ID: ' + place.place_id + '<br>' +
               place.formatted_address);
           infowindow.open(map, marker);
+
+          //adding the loction ID to the hidden form:
+          document.getElementById("locationID").value = place.place_id;
+
         });
       }
     </script>

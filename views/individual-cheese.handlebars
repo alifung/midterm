@@ -4,11 +4,11 @@
 {{#each cheeses}}
 <div id= "individualCheeseInfo">
 
-	{{#each filename}}
+	{{#if filename}}
 		<div class="cheeseimage">
 			<img src="/uploads/{{filename}}">
 		</div>
-	{{/each}}
+	{{/if}}
 	<div class="map">{{map}}</div>
 	<h3>{{tag}}</h3>
 </div>

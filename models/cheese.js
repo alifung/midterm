@@ -9,7 +9,7 @@ var Schema = mongoose.Schema;
 
 var cheeseSchema = new Schema({ //don't need a name, but then i do need slugs?
 	
-	location: Number,
+	location: String,
 	tag: String, // this is going to be equivalent to dishes. 
 	//imageURL: String
 	filename: String

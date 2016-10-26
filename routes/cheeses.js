@@ -32,13 +32,12 @@ router.post('/add', upload.single('image'), function(req, res) {
     }
 
     var cheese = new Cheese({
-        // location: req.place.place_id, //provided by google
+        location: req.body.locationID, //provided by google
         tag: req.body.tag,
         filename: myFileName //save the filenam
     });
 
     console.log(myFileName);
-    console.log(pla)
     // });
     cheese.save(function(err, data) {
         if (err) {
@@ -66,13 +65,20 @@ router.post('/add', upload.single('image'), function(req, res) {
 
 
 router.get('/individual-cheese:id', function(req, res) {
-    Cheese.findOne({ '_id': req.params.id }, function(err, data) {
+    Cheese.find({ '_id': req.params.id }, function(err, data) {
         if (err) {
             console.log(err);
         }
-        return res.render('individual-cheese', data);
+        var pageData = {
+            cheeses: data
+        }
+        console.log(data);
+        return res.render('individual-cheese', pageData);
     });
+
+
 });
+
 //  };
 // Cheese.findOne({'_id': req.params.id }, function(err, data) {
 //     if (err) {
