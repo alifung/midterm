@@ -59,6 +59,8 @@ router.post('/add', upload.single('image'), function(req, res) {
 //                 res.render('individual-cheese', pageData);
 //                 });
 //         });
+//fix mongo depreciation errors?
+
 
 router.get('/:id', function(req, res) {
     Cheese.findOne({ '_id': req.params.id }, function(err, data) {

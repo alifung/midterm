@@ -2,15 +2,16 @@
 
 
 {{#each cheeses}}
-<div id= individualCheeseInfo>
-	<div class="cheeseimage">
-		{{#if myFilename}}
+<div id= "individualCheeseInfo">
+
+	{{#if myFileName}}
+		<div class="cheeseimage">
 			<img src="/uploads/{{this}}">
-		{{/if}}
+		</div>
+	{{/if}}
 	<div class="map">
 	</div>
 	<h3>{{tag}}</h3>
-
 </div>
 {{/each}}
 
