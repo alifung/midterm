@@ -1,19 +1,33 @@
-body, h1, h2, h3{
-  font-family: sans-serif;
+@font-face {
+  font-family: Gotham;
+  src: url("GothamLight.ttf");
 }
 
-nav ul{
-  list-style-type: none;
-  display: inline;
+#title {
+  padding-top: 10vh;
+}
+
+body, h1, h2, h3{
+  background-color: #d6f2ec;
+  font-family: Gotham;
+}
+
+nav a{
+  display: inline-block;
+  padding-top: 10vh;
+}
+
+title {
+  padding-top: 40vh;
 }
 
 li {
-  float: left;
+  display: inline;
+  list-style-type: none;
 }
 
-body, title{
-  padding: 10%;
-  margin-left: 20%;
+form{
+  padding left: 20vh;
 }
 
 

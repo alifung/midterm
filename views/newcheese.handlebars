@@ -1,7 +1,7 @@
 <!-- google maps search places found at https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder -->
 
-
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxRaWgaD-gARm7vJkVpHrqyJf8qGrNohI&libraries=places"></script>
+<script>
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -33.8688, lng: 151.2195},
@@ -52,29 +52,28 @@
       }
 </script>
 
-<form action="/cheeses/add" method="post" enctype="multipart/form-data">
+  <form action="/cheeses/add" method="post" enctype="multipart/form-data" id ="form">
 
 
-<!-- map div stuff -->
+  <!-- map div stuff -->
 
-<input id="pac-input" class="controls" type="text"
-        placeholder="Enter a location">
-    <div id="map"></div>
+  <input id="pac-input" class="controls" type="text"
+          placeholder="Enter a location">
+      <div id="map"></div>
 
-<!-- map div stuff -->
+  <!-- map div stuff -->
 
-<label for="tag">Categorize Dish: </label>
-<select name="tag" id="tag">
-	<option value="Mac and Cheese">Mac and Cheese</option>
-	<option value="Italian">Italian</option>
-	<option value="Sandwiches">Sandwiches</option>
-</select>
+  <label for="tag">Categorize Dish: </label>
+  <select name="tag" id="tag">
+  	<option value="Mac and Cheese">Mac and Cheese</option>
+  	<option value="Italian">Italian</option>
+  	<option value="Sandwiches">Sandwiches</option>
+  </select>
 
-<label for="image">Image: </label>
-<input id="image" type="file" name="image" accepts="image/*">
+  <label for="image">Image: </label>
+  <input id="image" type="file" name="image" accepts="image/*">
 
-<input type="submit">
-</form>
+  <input type="submit">
+  </form>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap"
-        async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxRaWgaD-gARm7vJkVpHrqyJf8qGrNohI&libraries=places&callback=initMap"async defer></script>
