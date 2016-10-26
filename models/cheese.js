@@ -19,6 +19,6 @@ var cheeseSchema = new Schema({ //don't need a name, but then i do need slugs?
 
 //cheeseSchema.plugin(URLSlugs('name', {field: 'slug'})); // more for the slugs!
 
-var Cheese = mongoose.model('Cheese', cheeseSchema);
+var Cheese = mongoose.model('NewCheese', cheeseSchema);
 
 module.exports = Cheese; //require this file, and then you get that cheese model!

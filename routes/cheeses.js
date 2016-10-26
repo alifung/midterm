@@ -42,7 +42,7 @@ router.post('/add', upload.single('image'), function(req, res) {
             return res.redirect(404, '/cheeses/add'); // if error, return to the main display
         }
 
-        return res.redirect('./individual-cheese'); //if success, return to the main display
+        return res.redirect('./individual-cheese + data._id'); //if success, return to the YOUR cheese
     });
 });
 
