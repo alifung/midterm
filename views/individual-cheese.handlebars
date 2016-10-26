@@ -4,13 +4,12 @@
 {{#each cheeses}}
 <div id= "individualCheeseInfo">
 
-	{{#if myFileName}}
+	{{#each filename}}
 		<div class="cheeseimage">
-			<img src="/uploads/{{this}}">
+			<img src="/uploads/{{filename}}">
 		</div>
-	{{/if}}
-	<div class="map">
-	</div>
+	{{/each}}
+	<div class="map">{{map}}</div>
 	<h3>{{tag}}</h3>
 </div>
 {{/each}}

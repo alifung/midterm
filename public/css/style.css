@@ -1,9 +1,15 @@
 body, h1, h2, h3{
   font-family: sans-serif;
-  background-color: #d7f2ec;
 }
 
+nav ul{
+  list-style-type: none;
+  display: inline;
+}
 
+li {
+  float: left;
+}
 
 body, title{
   padding: 10%;

@@ -1,15 +1,12 @@
 <div id= "title"><h1>Cheeses Christ</h1></div>
 
 
-{{#each cheese}}
+{{#each cheeses}}
 	<div class="thecheese">
-		{{#if myFileName}}
-			<img src="/uploads/{{myFileName}}">
+		{{#if filename}}
+			<img src="/uploads/{{filename}}">
 		{{/if}}
-		<h3>{{tags}}</h3>
+		<h3>{{tag}}</h3>
 	</div>
 {{/each}}
 
-{{!-- //use getPlace to get the results of the stored stuff
- --}}
-{{!-- // <script>
