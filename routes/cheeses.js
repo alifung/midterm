@@ -30,8 +30,13 @@ router.post('/add', upload.single('image'), function(req, res) {
     var cheese = new Cheese({
         location: req.body.place_id, //provided by google
         tag: req.body.tag,
-        imageFilename: req.file.filename
     });
+    var myFileName = undefined;
+
+// if there is a file...
+    if (req.file) {
+      myFileName = req.file.filename;
+    }
     // });
     cheese.save(function(err, data) {
         if (err) {
