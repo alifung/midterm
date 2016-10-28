@@ -16,6 +16,12 @@ body, h1, h2, h3{
   padding: 10px;
 }
 
+#the-cheese;{
+    text-align: center;
+    padding: 20%;
+}
+
+
 nav a{
   display: inline-block;
   padding-top: 10vh;
