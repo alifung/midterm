@@ -1,8 +1,27 @@
-<div id= "title"><h1>Cheeses Christ</h1></div>
+<div id="title"><h1>Cheeses Christ</h1></div>
+<label for="type-of-cheese">Filter</label>
 
+<form>
+	<select>
+		<option method="get">Italian</option>
+		<option method="get">Sandwich</option>
+		<option method="get">Mac and Cheese</option>
+	</select>
+</form>
 
-{{#each cheeses}}
-	<div class="thecheese">
+{{!-- <button class="filters" data-filter=".mac-and-cheese">Mac and Cheese</button>
+<button class="filters" data-filter=".italian">Italian</button>
+<button class="filters" data-filter=".sandwich">Sandwich</button> --}}
+{{#if tags}}
+	<div class="cheese-filter">
+	{{#if filename}}<div><img src="/uploads/{{filename}}"></div>
+	{{/if}}
+	</div>
+{{/if}}
+
+{{#each Cheeses}}
+
+	<div class="the-cheese">
 		{{#if filename}}
 			<div class="cheese-gallery"><img src="/uploads/{{filename}}"></div>
 		{{/if}}

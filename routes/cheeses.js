@@ -11,9 +11,25 @@ var upload = multer({ dest: uploadPath }); //
 
 var Cheese = require('../models/cheese'); //this connects back to the model cheese.js
 
-router.get('/home', function(req, res) { //render handlebars template
-    res.render('home');
+// router.get('/home', function(req, res) { //render handlebars template
+//     res.render('home');
+// });
+
+router.get('/home', function(req, res) {
+    //console.log(res.render(_id));
+    var query = {}
+    if (req.query.id) {
+        query = { id: req.query.id};
+    }
+    Cheese.find(query, function(err, data) {
+        var pageData = {
+            Cheeses: data
+        };
+        res.render('home', pageData);
+    });
 });
+
+
 
 router.get('/add', function(req, res) {
     res.render('newcheese');
@@ -50,20 +66,6 @@ router.post('/add', upload.single('image'), function(req, res) {
     });
 });
 
-
-//for every individual cheese ID, find the one that matches and send me to that individual cheese
-// router.get('/:id', function(req, res) {
-//             // console.log('YO');
-//             Cheese.findOne({ '_id': req.params.id }, function(err, data) {
-//                 var pageData = {
-//                     showMe: [data]
-//                 };
-//                 res.render('individual-cheese', pageData);
-//                 });
-//         });
-//fix mongo depreciation errors?
-
-
 router.get('/individual-cheese:id', function(req, res) {
     Cheese.find({ '_id': req.params.id }, function(err, data) {
         if (err) {
@@ -75,17 +77,22 @@ router.get('/individual-cheese:id', function(req, res) {
         console.log(data);
         return res.render('individual-cheese', pageData);
     });
-
-
 });
 
-//  };
-// Cheese.findOne({'_id': req.params.id }, function(err, data) {
-//     if (err) {
-//         console.log(err);
-//     }
-//    return res.render('individual-cheese', data);
-//to display data on page
+router.get('/home:tag', function(req, res) {
+    Cheese.find({'tag': req.params.tag}, function(err, data) {
+        if (err) {
+            console.log(err);
+        }
+        var pageData = {
+            tags: data
+        }
+        console.log(data);
+        return res.render('home', pageData);
+    });
+    
+});
+
 router.get('individual-cheese', function(req, res) {
     //console.log(res.render(_id));
 
@@ -98,8 +105,6 @@ router.get('individual-cheese', function(req, res) {
             cheeses: data
         };
         res.render('individual-cheese' + data._id, pageData);
-
-
     });
 });
 
